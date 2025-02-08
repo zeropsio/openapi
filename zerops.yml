@@ -5,7 +5,7 @@ zerops:
       prepareCommands:
         - sudo npm i -g @redocly/cli
       buildCommands:
-        - redocly docs openapi.yml --output index.html
+        - redocly build-docs openapi.yml --output index.html
       deployFiles:
         - index.html
     run:
