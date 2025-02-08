@@ -1,12 +1,8 @@
 zerops:
   - setup: openapi
     build:
-      base: nodejs@22
-      prepareCommands:
-        - sudo npm i -g @redocly/cli
-      buildCommands:
-        - redocly build-docs openapi.yml --output index.html
       deployFiles:
         - index.html
+        - openapi.yml
     run:
       base: static
