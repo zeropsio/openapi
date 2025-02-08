@@ -1,1 +1,1 @@
-# Zerops REST API 
+# Zerops public REST API schema

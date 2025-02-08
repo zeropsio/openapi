@@ -1,25 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Zerops REST API Documentation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui.min.css" />
-  </head>
-  <body>
-    <div id="swagger-ui"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-bundle.js"></script>
-    <script>
-      window.onload = () => {
-        SwaggerUIBundle({
-          url: './openapi.yml',
-          dom_id: '#swagger-ui',
-          deepLinking: true,
-          presets: [
-            SwaggerUIBundle.presets.apis,
-            SwaggerUIBundle.SwaggerUIStandalonePreset
-          ],
-        });
-      };
-    </script>
-  </body>
+<head>
+    <meta charset="utf-8">
+    <title>Zerops REST API schema</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+    <style>
+        .header {
+            display: flex;
+            width:100%;
+
+            .logo {
+                height: 100%;
+            }
+        }
+
+        rapi-doc::part(section-logo),
+        rapi-doc::part(label-header-title) {
+            display: none;
+        }
+
+        rapi-doc::part(section-header) {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        rapi-doc::part(section-main-content) {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        @container (min-width: 768px) {
+            rapi-doc::part(section-header) {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            rapi-doc::part(section-main-content) {
+                padding-top: 25px;
+                padding-bottom: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+<rapi-doc id="rapi-doc"
+          spec-url="./openapi.yml"
+          server-url="https://api.app-prg1.zerops.io/"
+
+          render-style="view"
+
+          allow-spec-url-load="false"
+          allow-spec-file-load="false"
+
+          show-curl-before-try="true"
+          allow-server-selection="false"
+
+          font-size="large"
+          regular-font="Inter,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif"
+>
+    <div slot="header" class="header">
+        <a href="./">
+            <img src="./logo.svg" class="logo" alt="Zerops.io"/>
+        </a>
+        <div></div>
+    </div>
+</rapi-doc>
+<script type="text/javascript">
+    function changeTheme(themeName) {
+        let docEl = document.getElementById("rapi-doc");
+        if (themeName === 'dark') {
+            docEl.setAttribute('theme', 'dark');
+            docEl.setAttribute('primary-color', '#61dcd3');
+            docEl.setAttribute('bg-color', '#222');
+            docEl.setAttribute('text-color', '#ddd');
+        } else if (themeName === 'light') {
+            docEl.setAttribute('theme', 'light');
+            docEl.setAttribute('primary-color', '#00b1a3');
+            docEl.setAttribute('bg-color', '');
+            docEl.setAttribute('text-color', '#000');
+        }
+    }
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        changeTheme('dark');
+    } else {
+        changeTheme('light');
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', ({matches}) => matches ? changeTheme('dark') : changeTheme('light'))
+</script>
+</body>
 </html>

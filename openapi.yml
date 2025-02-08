@@ -165,14 +165,6 @@ components:
         Code: userNotFound
         Message: User not found.
   parameters:
-    Authorization:
-      in: header
-      name: Authorization
-      required: true
-      schema:
-        format: UUIDShort
-        pattern: ^[a-zA-Z0-9]{22}$
-        type: string
     Sync:
       in: header
       name: Sync
@@ -339,10 +331,10 @@ components:
         userEnabled:
           type: boolean
         validFrom:
-          format: dateTime
+          format: date-time
           type: string
         validTill:
-          format: dateTime
+          format: date-time
           type: string
       required:
       - addonName
@@ -360,23 +352,23 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         containerCreationStart:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         endDate:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         pipelineFailed:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         pipelineFinish:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         pipelineStart:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         serviceStackId:
@@ -393,7 +385,7 @@ components:
           nullable: true
           type: string
         startDate:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
       type: object
@@ -456,7 +448,7 @@ components:
     AppVersionJsonObject:
       properties:
         activationDate:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         base:
@@ -469,7 +461,7 @@ components:
           nullable: true
           type: string
         created:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         createdByUser:
@@ -549,14 +541,14 @@ components:
           nullable: true
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         os:
           nullable: true
@@ -593,6 +585,7 @@ components:
           nullable: true
           type: boolean
         gitUrl:
+          format: uri
           type: string
       required:
       - gitUrl
@@ -640,7 +633,7 @@ components:
         author:
           $ref: '#/components/schemas/Author'
         expiresAt:
-          format: dateTime
+          format: date-time
           type: string
         expiresIn:
           format: int
@@ -774,12 +767,15 @@ components:
         externalAvatarUrl:
           nullable: true
           type: string
+          format: uri
         largeAvatarUrl:
           nullable: true
           type: string
+          format: uri
         smallAvatarUrl:
           nullable: true
           type: string
+          format: uri
       type: object
     ClientInfoLanguageObject:
       properties:
@@ -796,7 +792,7 @@ components:
           nullable: true
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         currency:
           $ref: '#/components/schemas/ClientInfoObjectCurrency'
@@ -805,10 +801,10 @@ components:
         language:
           $ref: '#/components/schemas/ClientInfoLanguageObject'
         lastPublicUpdate:
-          format: dateTime
+          format: date-time
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         status:
           type: string
@@ -862,14 +858,14 @@ components:
         avatar:
           $ref: '#/components/schemas/ClientAvatar'
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         status:
           enum:
@@ -971,7 +967,7 @@ components:
           format: text
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
@@ -989,7 +985,7 @@ components:
           example: server1
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -1041,7 +1037,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         githubIntegration:
           $ref: '#/components/schemas/AppVersionGithubIntegration'
@@ -1050,7 +1046,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -1128,13 +1124,13 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         currencyId:
           format: id
           type: string
         datePaid:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         id:
@@ -1149,7 +1145,7 @@ components:
           - OFFSESSION
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         paymentMethod:
           description: Stripe source_id - zdroj, odkud se mají prostředky strhnout.
@@ -1192,14 +1188,14 @@ components:
     EsClient:
       properties:
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
       required:
       - id
@@ -1300,7 +1296,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         currentHardwareResource:
           $ref: '#/components/schemas/HardwareResource'
@@ -1313,7 +1309,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         name:
           nullable: true
@@ -1420,14 +1416,14 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         createdBySystem:
           type: boolean
         createdByUser:
           $ref: '#/components/schemas/UserJsonObject'
         finished:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         id:
@@ -1435,7 +1431,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         project:
           $ref: '#/components/schemas/ProjectLightJsonObject'
@@ -1459,7 +1455,7 @@ components:
             $ref: '#/components/schemas/ServiceStackLightJsonObject'
           type: array
         started:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         status:
@@ -1487,7 +1483,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         description:
           format: text
@@ -1504,7 +1500,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         logForwardingType:
           nullable: true
@@ -1554,7 +1550,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         deleteOnSync:
           type: boolean
@@ -1572,7 +1568,7 @@ components:
         isSynced:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         locations:
           format: objectArray
@@ -1606,7 +1602,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         deleteOnSync:
           type: boolean
@@ -1639,7 +1635,7 @@ components:
         isSynced:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -1708,7 +1704,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           description: = service.id in Zerops Infrastructure
@@ -1716,7 +1712,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         name:
           description: "hostname + ENV\n\t\tJako hostname + musí splňovat regulární
@@ -1792,7 +1788,7 @@ components:
             $ref: '#/components/schemas/ServiceStackConnectedServiceStack'
           type: array
         created:
-          format: dateTime
+          format: date-time
           type: string
         customAutoscaling:
           $ref: '#/components/schemas/CustomAutoscaling'
@@ -1822,7 +1818,7 @@ components:
         isSystem:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         mode:
           default: HA
@@ -1956,7 +1952,7 @@ components:
           - PREPARE_RUNTIME
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         defaultServiceStackVersion:
           $ref: '#/components/schemas/ServiceStackTypeVersionLight'
@@ -1971,7 +1967,7 @@ components:
           format: id
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         name:
           type: string
@@ -2020,7 +2016,7 @@ components:
           format: float
           type: number
         from:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           type: string
@@ -2036,7 +2032,7 @@ components:
         serviceStackId:
           type: string
         till:
-          format: dateTime
+          format: date-time
           type: string
         vCpuLimit:
           format: float
@@ -2102,7 +2098,7 @@ components:
           format: decimal
           type: number
         from:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           type: string
@@ -2119,7 +2115,7 @@ components:
           format: decimal
           type: number
         till:
-          format: dateTime
+          format: date-time
           type: string
         vCpu:
           format: decimal
@@ -2203,7 +2199,7 @@ components:
           format: text
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
@@ -2221,7 +2217,7 @@ components:
           example: server1
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -2261,10 +2257,10 @@ components:
         acknowledged:
           type: boolean
         actionCreated:
-          format: dateTime
+          format: date-time
           type: string
         actionFinished:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         actionName:
@@ -2322,7 +2318,7 @@ components:
     GetAppVersion:
       properties:
         activationDate:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         build:
@@ -2332,7 +2328,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         createdByUser:
           $ref: '#/components/schemas/UserJsonObject'
@@ -2345,7 +2341,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -2611,11 +2607,11 @@ components:
     PrepareCustomRuntime:
       properties:
         containerCreationStart:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         endDate:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         serviceStackId:
@@ -2633,7 +2629,7 @@ components:
           nullable: true
           type: string
         startDate:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
       type: object
@@ -2650,14 +2646,14 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         createdBySystem:
           type: boolean
         createdByUser:
           $ref: '#/components/schemas/UserJsonObject'
         finished:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         id:
@@ -2665,7 +2661,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         project:
           $ref: '#/components/schemas/ProjectLightJsonObject'
@@ -2689,7 +2685,7 @@ components:
             $ref: '#/components/schemas/ServiceStackLightJsonObject'
           type: array
         started:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         status:
@@ -2717,7 +2713,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         description:
           format: text
@@ -2729,7 +2725,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         logForwardingType:
           nullable: true
@@ -2837,7 +2833,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         description:
           format: text
@@ -2849,7 +2845,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         mode:
           default: LEGACY
@@ -2896,7 +2892,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         description:
           format: text
@@ -2908,7 +2904,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         name:
           type: string
@@ -2986,7 +2982,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         deleteOnSync:
           type: boolean
@@ -3004,7 +3000,7 @@ components:
         isSynced:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         locations:
           format: objectArray
@@ -3117,7 +3113,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         deleteOnSync:
           type: boolean
@@ -3150,7 +3146,7 @@ components:
         isSynced:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -3353,7 +3349,7 @@ components:
     RequestEsStatsHistoryFilter:
       properties:
         from:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         groupBy:
@@ -3378,7 +3374,7 @@ components:
           nullable: true
           type: string
         till:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         timeGroupBy:
@@ -3420,7 +3416,7 @@ components:
     RequestEsTransactionDebitGroupBy:
       properties:
         from:
-          format: dateTime
+          format: date-time
           type: string
         groupBy:
           enum:
@@ -3440,7 +3436,7 @@ components:
           nullable: true
           type: string
         till:
-          format: dateTime
+          format: date-time
           type: string
         timeGroupBy:
           type: string
@@ -4336,7 +4332,7 @@ components:
         author:
           $ref: '#/components/schemas/Author'
         expiresAt:
-          format: dateTime
+          format: date-time
           type: string
         expiresIn:
           format: int
@@ -4848,7 +4844,7 @@ components:
     ResponseEsStatsHistoryList:
       properties:
         from:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         groupBy:
@@ -4867,7 +4863,7 @@ components:
           nullable: true
           type: integer
         till:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         timeGroupBy:
@@ -4922,7 +4918,7 @@ components:
     ResponseEsTransactionDebitGroupByResponse:
       properties:
         from:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         groupBy:
@@ -4943,7 +4939,7 @@ components:
           nullable: true
           type: string
         till:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         timeGroupBy:
@@ -5015,14 +5011,17 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         expiration:
-          format: dateTime
+          format: date-time
           type: string
         listUrl:
           type: string
+          format: uri
         readFileContentUrl:
           type: string
+          format: uri
         readFileUrl:
           type: string
+          format: uri
       required:
       - accessToken
       - expiration
@@ -5035,7 +5034,7 @@ components:
     ResponseGetAppVersion:
       properties:
         activationDate:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         build:
@@ -5045,7 +5044,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         createdByUser:
           $ref: '#/components/schemas/UserJsonObject'
@@ -5058,7 +5057,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -5136,6 +5135,7 @@ components:
       properties:
         githubUrl:
           type: string
+          format: uri
       required:
       - githubUrl
       type: object
@@ -5143,6 +5143,7 @@ components:
       properties:
         gitlabUrl:
           type: string
+          format: uri
       required:
       - gitlabUrl
       type: object
@@ -5166,7 +5167,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         currencyId:
           format: id
@@ -5175,19 +5176,19 @@ components:
           format: decimal
           type: number
         dueDate:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         number:
           type: string
         paidDate:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         paymentId:
@@ -5249,14 +5250,14 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -5290,6 +5291,7 @@ components:
           type: string
         uploadUrl:
           type: string
+          format: uri
         userDataList:
           format: objectArray
           items:
@@ -5332,14 +5334,14 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         createdBySystem:
           type: boolean
         createdByUser:
           $ref: '#/components/schemas/UserJsonObject'
         finished:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         id:
@@ -5347,7 +5349,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         project:
           $ref: '#/components/schemas/ProjectLightJsonObject'
@@ -5371,7 +5373,7 @@ components:
             $ref: '#/components/schemas/ServiceStackLightJsonObject'
           type: array
         started:
-          format: dateTime
+          format: date-time
           nullable: true
           type: string
         status:
@@ -5404,7 +5406,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         description:
           format: text
@@ -5416,7 +5418,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         logForwardingType:
           nullable: true
@@ -5481,7 +5483,7 @@ components:
           format: text
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
@@ -5499,7 +5501,7 @@ components:
           example: server1
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -5555,10 +5557,11 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         expiration:
-          format: dateTime
+          format: date-time
           type: string
         url:
           type: string
+          format: uri
         urlInfo:
           type: string
       required:
@@ -5597,7 +5600,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         deleteOnSync:
           type: boolean
@@ -5615,7 +5618,7 @@ components:
         isSynced:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         locations:
           format: objectArray
@@ -5649,7 +5652,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         deleteOnSync:
           type: boolean
@@ -5682,7 +5685,7 @@ components:
         isSynced:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -5741,7 +5744,7 @@ components:
         coreService:
           $ref: '#/components/schemas/ServiceStackLight'
         created:
-          format: dateTime
+          format: date-time
           type: string
         customAutoscaling:
           $ref: '#/components/schemas/CustomAutoscaling'
@@ -5759,7 +5762,7 @@ components:
         isSystem:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         mode:
           default: HA
@@ -5945,7 +5948,7 @@ components:
         coreService:
           $ref: '#/components/schemas/ServiceStackLight'
         created:
-          format: dateTime
+          format: date-time
           type: string
         customAutoscaling:
           $ref: '#/components/schemas/CustomAutoscaling'
@@ -5963,7 +5966,7 @@ components:
         isSystem:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         mode:
           default: HA
@@ -6131,6 +6134,7 @@ components:
       properties:
         url:
           type: string
+          format: uri
       required:
       - url
       type: object
@@ -6148,7 +6152,7 @@ components:
           nullable: true
           type: integer
         created:
-          format: dateTime
+          format: date-time
           type: string
         email:
           format: email
@@ -6167,7 +6171,7 @@ components:
           format: emptyString
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         phoneNumber:
           format: int
@@ -6204,7 +6208,7 @@ components:
           nullable: true
           type: integer
         created:
-          format: dateTime
+          format: date-time
           type: string
         email:
           format: email
@@ -6225,7 +6229,7 @@ components:
           format: emptyString
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         passwordIsSet:
           type: boolean
@@ -6264,7 +6268,7 @@ components:
           format: text
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
@@ -6282,7 +6286,7 @@ components:
           example: server1
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -6608,7 +6612,7 @@ components:
     ServiceStackLightJsonObject:
       properties:
         created:
-          format: dateTime
+          format: date-time
           type: string
         driverId:
           format: id
@@ -6620,7 +6624,7 @@ components:
           pattern: ^[a-zA-Z0-9]{22}$
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         name:
           description: "hostname + ENV\n\t\tJako hostname + musí splňovat regulární
@@ -6674,7 +6678,7 @@ components:
           - PREPARE_RUNTIME
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         description:
           format: text
@@ -6683,7 +6687,7 @@ components:
           format: id
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         name:
           type: string
@@ -6705,7 +6709,7 @@ components:
         config:
           $ref: '#/components/schemas/ServiceStackTypeVersionConfig'
         created:
-          format: dateTime
+          format: date-time
           type: string
         description:
           format: text
@@ -6723,7 +6727,7 @@ components:
         isBuild:
           type: boolean
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         name:
           type: string
@@ -6732,7 +6736,7 @@ components:
           nullable: true
           type: string
         releaseDate:
-          format: dateTime
+          format: date-time
           type: string
         serviceStackTypeId:
           format: id
@@ -6778,7 +6782,7 @@ components:
         name:
           type: string
         releaseDate:
-          format: dateTime
+          format: date-time
           type: string
         serviceStackTypeId:
           format: id
@@ -6787,7 +6791,7 @@ components:
           default: ACTIVE
           type: string
         updateUrl:
-          format: text
+          format: uri
           type: string
       required:
       - id
@@ -6811,7 +6815,7 @@ components:
           nullable: true
           type: integer
         created:
-          format: dateTime
+          format: date-time
           type: string
         email:
           format: email
@@ -6830,7 +6834,7 @@ components:
           format: emptyString
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         phoneNumber:
           format: int
@@ -6858,12 +6862,15 @@ components:
         externalAvatarUrl:
           nullable: true
           type: string
+          format: uri
         largeAvatarUrl:
           nullable: true
           type: string
+          format: uri
         smallAvatarUrl:
           nullable: true
           type: string
+          format: uri
       type: object
     UserData:
       properties:
@@ -6877,7 +6884,7 @@ components:
           format: text
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
@@ -6895,7 +6902,7 @@ components:
           example: server1
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -6942,7 +6949,7 @@ components:
           format: text
           type: string
         created:
-          format: dateTime
+          format: date-time
           type: string
         id:
           format: UUIDShort
@@ -6960,7 +6967,7 @@ components:
           example: server1
           type: string
         lastUpdate:
-          format: dateTime
+          format: date-time
           type: string
         projectId:
           description: = instance.id in Zerops Infrastructure
@@ -7083,6 +7090,7 @@ components:
           type: string
         ownerUrl:
           type: string
+          format: uri
         visibility:
           enum:
           - PUBLIC
@@ -7182,22 +7190,29 @@ components:
       - network
       - gateway
       type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []
+
 info:
   contact:
     email: dev@zerops.io
   description: OpenAPI 3.0.0 documentation for Zerops project ZeropsBusiness.
   license:
     name: Zerops client licence
-    url: http://www.zerops.io
-  title: ZeropsBusiness-restPublic
+    url: https://www.zerops.io
+  title: Zerops public REST API schema
   version: 7f6547eb53c6395b2835f392244aefdb
 openapi: 3.0.0
 paths:
   /api/rest/public/app-version:
     post:
       operationId: 8c6aa9e2-1989-4e3b-ad7e-6d546e0b82de
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7217,7 +7232,6 @@ paths:
       operationId: 967b327a-e7f0-4191-92e2-1c835a370907
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7231,7 +7245,6 @@ paths:
       operationId: 708d0ca5-55c3-405b-9185-c6d45195fff5
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7246,7 +7259,6 @@ paths:
       operationId: c5cebaff-aa57-4c2f-b194-bb8574804f12
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7266,7 +7278,6 @@ paths:
       operationId: f9bb3a42-4dc7-4a96-823d-c2321eddfcda
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7281,7 +7292,6 @@ paths:
       operationId: 591315ef-b9d1-4b17-8a46-61baf1ab8bd6
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7301,7 +7311,6 @@ paths:
       operationId: 999700e5-26eb-4237-9ad8-9ebb9074221b
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7316,7 +7325,6 @@ paths:
       operationId: 19953869-a72a-4225-a4ec-19e380e6f33e
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7350,7 +7358,6 @@ paths:
       operationId: app-versionSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7363,8 +7370,6 @@ paths:
   /api/rest/public/app-version/search:
     post:
       operationId: app-versionSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7382,8 +7387,6 @@ paths:
   /api/rest/public/app-version/search/columns:
     get:
       operationId: app-versionSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7396,8 +7399,6 @@ paths:
   /api/rest/public/app-version/search/export:
     post:
       operationId: app-versionSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7415,8 +7416,6 @@ paths:
   /api/rest/public/app-version/search/names:
     get:
       operationId: app-versionSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7429,8 +7428,6 @@ paths:
   /api/rest/public/app-version/suggest:
     post:
       operationId: app-versionSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7449,8 +7446,6 @@ paths:
     get:
       description: Načtení objektu user na základě refreshToken.
       operationId: b8b70b38-c484-4f7f-b79e-cde6a87aaa9e
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7626,8 +7621,6 @@ paths:
     delete:
       description: Smaže avatara přihlášeného uživatele
       operationId: 7371be20-81f8-4c52-8f5f-0cae24409341
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7640,8 +7633,6 @@ paths:
     put:
       description: Nahraje avatara přihlášeného uživatele
       operationId: b5e1d655-1227-4201-8d79-a409af2ecada
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7656,7 +7647,6 @@ paths:
       operationId: f982f48b-9c2a-443f-afb5-c692db0b2510
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7677,7 +7667,6 @@ paths:
       operationId: b1bb3ebe-2f26-4c0b-9ffb-1d35523c84ea
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7697,7 +7686,6 @@ paths:
       operationId: 11089843-1f7a-4a76-9f23-153b9a798166
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7730,7 +7718,6 @@ paths:
       operationId: 1875b7a5-de4d-4463-b727-8e2fa4f9432c
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7744,7 +7731,6 @@ paths:
       operationId: 3b706747-7f19-48a1-840c-93de97ea64b1
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7759,7 +7745,6 @@ paths:
       operationId: 869316b5-86dd-4964-ba5c-9f669759ff7a
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7773,8 +7758,6 @@ paths:
     post:
       description: create payment
       operationId: 56765f6b-c5d6-4b92-9f46-0ccfe802633b
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7796,7 +7779,6 @@ paths:
       parameters:
       - $ref: '#/components/parameters/id'
       - $ref: '#/components/parameters/languageId'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7831,7 +7813,6 @@ paths:
       parameters:
       - $ref: '#/components/parameters/id'
       - $ref: '#/components/parameters/languageId'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7864,7 +7845,6 @@ paths:
       operationId: card-paymentSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7911,8 +7891,6 @@ paths:
   /api/rest/public/card-payment/search:
     post:
       operationId: card-paymentSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7930,8 +7908,6 @@ paths:
   /api/rest/public/card-payment/search/columns:
     get:
       operationId: card-paymentSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7944,8 +7920,6 @@ paths:
   /api/rest/public/card-payment/search/export:
     post:
       operationId: card-paymentSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -7963,8 +7937,6 @@ paths:
   /api/rest/public/card-payment/search/names:
     get:
       operationId: card-paymentSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -7994,8 +7966,6 @@ paths:
   /api/rest/public/card-payment/suggest:
     post:
       operationId: card-paymentSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8014,8 +7984,6 @@ paths:
     post:
       description: Založí nového uživatele v DB IS.
       operationId: 396fa542-b95c-459b-a6e1-02903ec9f5c5
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8071,7 +8039,6 @@ paths:
       operationId: f2567347-099e-4fec-9020-bd3b6a6a6129
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8110,7 +8077,6 @@ paths:
       operationId: 9cab21eb-0200-451d-942e-2024d46404fb
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8154,7 +8120,6 @@ paths:
       operationId: 1d1b4e2f-9b7c-4203-ba72-d6d1ee5aaea5
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8210,7 +8175,6 @@ paths:
       operationId: 686e3c54-1395-4565-9874-114a156c0552
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8256,7 +8220,6 @@ paths:
       operationId: client-userSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8269,8 +8232,6 @@ paths:
   /api/rest/public/client-user/search:
     post:
       operationId: client-userSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8288,8 +8249,6 @@ paths:
   /api/rest/public/client-user/search/columns:
     get:
       operationId: client-userSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8302,8 +8261,6 @@ paths:
   /api/rest/public/client-user/search/export:
     post:
       operationId: client-userSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8321,8 +8278,6 @@ paths:
   /api/rest/public/client-user/search/names:
     get:
       operationId: client-userSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8335,8 +8290,6 @@ paths:
   /api/rest/public/client-user/suggest:
     post:
       operationId: client-userSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8355,8 +8308,6 @@ paths:
     post:
       description: Provede kontrolu možnosti připojení uživatele ke klientovi.
       operationId: 9bc85a3b-ed72-4fdb-a17f-f75297366814
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8398,7 +8349,6 @@ paths:
       operationId: client-versionSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8411,8 +8361,6 @@ paths:
   /api/rest/public/client-version/search:
     post:
       operationId: client-versionSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8430,8 +8378,6 @@ paths:
   /api/rest/public/client-version/search/columns:
     get:
       operationId: client-versionSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8444,8 +8390,6 @@ paths:
   /api/rest/public/client-version/search/export:
     post:
       operationId: client-versionSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8463,8 +8407,6 @@ paths:
   /api/rest/public/client-version/search/names:
     get:
       operationId: client-versionSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8477,8 +8419,6 @@ paths:
   /api/rest/public/client-version/suggest:
     post:
       operationId: client-versionSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8498,7 +8438,6 @@ paths:
       operationId: 1bc6a952-b248-454c-a75f-586277f41dbc
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8519,7 +8458,6 @@ paths:
       operationId: e1cf3fbb-7408-4e37-a6da-e38edf3b451f
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8534,7 +8472,6 @@ paths:
       operationId: 28101e60-30c1-4b32-909a-88c9ff06a1ff
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8598,7 +8535,6 @@ paths:
       operationId: clientSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8611,8 +8547,6 @@ paths:
   /api/rest/public/client/search:
     post:
       operationId: clientSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8630,8 +8564,6 @@ paths:
   /api/rest/public/client/search/columns:
     get:
       operationId: clientSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8644,8 +8576,6 @@ paths:
   /api/rest/public/client/search/export:
     post:
       operationId: clientSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8663,8 +8593,6 @@ paths:
   /api/rest/public/client/search/names:
     get:
       operationId: clientSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8677,8 +8605,6 @@ paths:
   /api/rest/public/client/suggest:
     post:
       operationId: clientSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8698,7 +8624,6 @@ paths:
       operationId: containerSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8711,8 +8636,6 @@ paths:
   /api/rest/public/container/search:
     post:
       operationId: containerSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8730,8 +8653,6 @@ paths:
   /api/rest/public/container/search/columns:
     get:
       operationId: containerSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8744,8 +8665,6 @@ paths:
   /api/rest/public/container/search/export:
     post:
       operationId: containerSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8763,8 +8682,6 @@ paths:
   /api/rest/public/container/search/names:
     get:
       operationId: containerSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8777,8 +8694,6 @@ paths:
   /api/rest/public/container/suggest:
     post:
       operationId: containerSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8798,7 +8713,6 @@ paths:
       operationId: countrySearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8811,8 +8725,6 @@ paths:
   /api/rest/public/country/search:
     post:
       operationId: countrySearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8830,8 +8742,6 @@ paths:
   /api/rest/public/country/search/columns:
     get:
       operationId: countrySearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8844,8 +8754,6 @@ paths:
   /api/rest/public/country/search/export:
     post:
       operationId: countrySearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8863,8 +8771,6 @@ paths:
   /api/rest/public/country/search/names:
     get:
       operationId: countrySearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8877,8 +8783,6 @@ paths:
   /api/rest/public/country/suggest:
     post:
       operationId: countrySuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8898,7 +8802,6 @@ paths:
       operationId: currencySearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8911,8 +8814,6 @@ paths:
   /api/rest/public/currency/search:
     post:
       operationId: currencySearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8930,8 +8831,6 @@ paths:
   /api/rest/public/currency/search/columns:
     get:
       operationId: currencySearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8944,8 +8843,6 @@ paths:
   /api/rest/public/currency/search/export:
     post:
       operationId: currencySearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -8963,8 +8860,6 @@ paths:
   /api/rest/public/currency/search/names:
     get:
       operationId: currencySearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -8977,8 +8872,6 @@ paths:
   /api/rest/public/currency/suggest:
     post:
       operationId: currencySuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9017,8 +8910,6 @@ paths:
     get:
       description: Načte seznam repozitářů přihlášeného uživatele.
       operationId: 61f99cb0-c4da-4bb0-8016-19425bcfdab0
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9045,7 +8936,6 @@ paths:
       operationId: 8849c943-675f-40e7-b586-ef265ea5e264
       parameters:
       - $ref: '#/components/parameters/repositoryFullName'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9131,8 +9021,6 @@ paths:
       description: Provede autorizaci k repozitářům uživatele na základě předchozí
         autorizace v GitHubu.
       operationId: 31f05fc9-2da9-4a08-8b58-f01973f179fc
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9181,8 +9069,6 @@ paths:
     get:
       description: Načte seznam repozitářů přihlášeného uživatele.
       operationId: 0ffe57b4-db5b-4174-93b5-5aa065831936
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9209,7 +9095,6 @@ paths:
       operationId: 2181a532-a316-42cd-a0ec-d373fe25cd7f
       parameters:
       - $ref: '#/components/parameters/repositoryFullName'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9295,8 +9180,6 @@ paths:
       description: Provede autorizaci k repozitářům uživatele na základě předchozí
         autorizace v Gitlabu.
       operationId: f4dcdae8-a1ed-4dd8-ab5c-3b777ac8234e
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9327,7 +9210,6 @@ paths:
       operationId: languageSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9340,8 +9222,6 @@ paths:
   /api/rest/public/language/search:
     post:
       operationId: languageSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9359,8 +9239,6 @@ paths:
   /api/rest/public/language/search/columns:
     get:
       operationId: languageSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9373,8 +9251,6 @@ paths:
   /api/rest/public/language/search/export:
     post:
       operationId: languageSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9392,8 +9268,6 @@ paths:
   /api/rest/public/language/search/names:
     get:
       operationId: languageSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9406,8 +9280,6 @@ paths:
   /api/rest/public/language/suggest:
     post:
       operationId: languageSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9428,7 +9300,6 @@ paths:
       operationId: 03f82684-de22-4bd8-b1a7-83622d2fea02
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9464,7 +9335,6 @@ paths:
       operationId: 868cc8ec-6f34-4f31-b576-6c4cd6c8bb07
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9510,7 +9380,6 @@ paths:
       operationId: processSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9523,8 +9392,6 @@ paths:
   /api/rest/public/process/search:
     post:
       operationId: processSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9542,8 +9409,6 @@ paths:
   /api/rest/public/process/search/columns:
     get:
       operationId: processSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9556,8 +9421,6 @@ paths:
   /api/rest/public/process/search/export:
     post:
       operationId: processSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9575,8 +9438,6 @@ paths:
   /api/rest/public/process/search/names:
     get:
       operationId: processSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9589,8 +9450,6 @@ paths:
   /api/rest/public/process/suggest:
     post:
       operationId: processSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9609,8 +9468,6 @@ paths:
     post:
       description: Založí projekt v Zerops Business
       operationId: 512a3009-5465-4b10-9cc1-2b138d495ca0
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9649,8 +9506,6 @@ paths:
     post:
       description: Založení nového záznamu projectEnv.
       operationId: 3777c612-b2dd-4e98-94aa-2167d61ddf98
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9670,7 +9525,6 @@ paths:
       operationId: aed37098-98d5-43f1-9318-7d632cdb9c0f
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9685,7 +9539,6 @@ paths:
       operationId: 07757d35-5b9a-46b2-bc16-0cd2ffffab0b
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9699,7 +9552,6 @@ paths:
       operationId: 8f009e2b-e679-46c4-bc78-c93dcfb86908
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9717,8 +9569,6 @@ paths:
   /api/rest/public/project-env/env-file:
     put:
       operationId: 0ee82d84-79e4-4348-bba3-3963b76a3b1b
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9738,7 +9588,6 @@ paths:
       operationId: b6eed90e-4967-409d-8db1-327e209517b8
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9772,7 +9621,6 @@ paths:
       operationId: 44e2c791-1b06-4e1a-bc80-cfc07d2da66d
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9807,7 +9655,6 @@ paths:
       operationId: deb3d292-1d49-4bb4-8a57-900294242edf
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9848,7 +9695,6 @@ paths:
       operationId: f46d0788-78e1-43ff-ac7a-ed9a7ee3a293
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9863,7 +9709,6 @@ paths:
       operationId: 1ca9e5bf-3c11-49e0-929f-8e184d55583d
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9899,7 +9744,6 @@ paths:
       operationId: d181d0f7-d8dc-4c44-a881-05a7892c2657
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -9920,7 +9764,6 @@ paths:
       operationId: 47e0e235-d40e-4b2b-9ab5-fef07caa064f
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9956,7 +9799,6 @@ paths:
       operationId: ddf990aa-5e86-45f0-9568-d280c6e7ca80
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9972,7 +9814,6 @@ paths:
       operationId: e91b136a-c8bc-4cdb-a4c9-67143878aaf9
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -9987,7 +9828,6 @@ paths:
       operationId: 21fe8cef-af9a-493c-b463-72859193233d
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10002,7 +9842,6 @@ paths:
       operationId: 2c8a514d-04ac-4058-a694-6522a8c8c62b
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10018,7 +9857,6 @@ paths:
       operationId: 87c566d5-1eda-421a-9cac-4a322cc57e0b
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10034,7 +9872,6 @@ paths:
       operationId: c3429771-7a66-4cc4-86b8-96aa74d0a69e
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10050,7 +9887,6 @@ paths:
       operationId: 89836a45-0cd3-44e8-8f90-5a9d8124c8a1
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10070,7 +9906,6 @@ paths:
       operationId: ce011f55-97cd-4510-af51-219e695aaccb
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10092,7 +9927,6 @@ paths:
       parameters:
       - $ref: '#/components/parameters/id'
       - $ref: '#/components/parameters/base64PublicKey'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10108,7 +9942,6 @@ paths:
       operationId: ada46fbe-3bbd-412c-9050-77b76cf2e764
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10123,7 +9956,6 @@ paths:
       operationId: projectSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10137,8 +9969,6 @@ paths:
     post:
       description: creates project based on it´s yaml format configuration
       operationId: 117d9300-f66b-41f0-b639-e190f610a5d5
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10156,8 +9986,6 @@ paths:
   /api/rest/public/project/search:
     post:
       operationId: projectSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10175,8 +10003,6 @@ paths:
   /api/rest/public/project/search/columns:
     get:
       operationId: projectSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10189,8 +10015,6 @@ paths:
   /api/rest/public/project/search/export:
     post:
       operationId: projectSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10208,8 +10032,6 @@ paths:
   /api/rest/public/project/search/names:
     get:
       operationId: projectSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10222,8 +10044,6 @@ paths:
   /api/rest/public/project/suggest:
     post:
       operationId: projectSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10242,8 +10062,6 @@ paths:
     post:
       description: Vypíše všechny tagy použité na všech klientových projektech
       operationId: 2a4e1f87-4655-4c72-8723-9d98b336a133
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10263,7 +10081,6 @@ paths:
       operationId: b7e020a5-3e10-42b5-9958-dce9542e6d94
       parameters:
       - $ref: '#/components/parameters/name'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10277,8 +10094,6 @@ paths:
     post:
       description: Založí public http routing
       operationId: 56902644-f38a-4181-a914-4f7f788e3dd9
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10299,7 +10114,6 @@ paths:
       operationId: 3de4a004-edd7-4c22-b99e-aa9d056dcc15
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10314,7 +10128,6 @@ paths:
       operationId: e5fca625-c09a-4951-9da3-ef7a6790c0c5
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10329,7 +10142,6 @@ paths:
       operationId: 2df216c6-6461-4b93-8d9f-d8b14da3f14c
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10350,7 +10162,6 @@ paths:
       operationId: 5e151eee-b3de-47f4-a544-cdda5f7d8992
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10365,7 +10176,6 @@ paths:
       operationId: public-http-routingSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10378,8 +10188,6 @@ paths:
   /api/rest/public/public-http-routing/search:
     post:
       operationId: public-http-routingSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10397,8 +10205,6 @@ paths:
   /api/rest/public/public-http-routing/search/columns:
     get:
       operationId: public-http-routingSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10411,8 +10217,6 @@ paths:
   /api/rest/public/public-http-routing/search/export:
     post:
       operationId: public-http-routingSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10430,8 +10234,6 @@ paths:
   /api/rest/public/public-http-routing/search/names:
     get:
       operationId: public-http-routingSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10444,8 +10246,6 @@ paths:
   /api/rest/public/public-http-routing/suggest:
     post:
       operationId: public-http-routingSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10464,8 +10264,6 @@ paths:
     post:
       description: Založí public port routing
       operationId: 0aa4070c-24b0-48a6-8fb6-8cb08d2ee01c
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10486,7 +10284,6 @@ paths:
       operationId: d38fab1d-c326-4f49-bcd0-605b90f926c3
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10501,7 +10298,6 @@ paths:
       operationId: 80347639-fd9e-4250-82be-54662679a90d
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10516,7 +10312,6 @@ paths:
       operationId: d4adb9cb-a8c6-486f-91df-4673a423c17d
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10537,7 +10332,6 @@ paths:
       operationId: 97409c74-fca1-4c24-9990-0af9e6da91e3
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10552,7 +10346,6 @@ paths:
       operationId: public-port-routingSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10565,8 +10358,6 @@ paths:
   /api/rest/public/public-port-routing/search:
     post:
       operationId: public-port-routingSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10584,8 +10375,6 @@ paths:
   /api/rest/public/public-port-routing/search/columns:
     get:
       operationId: public-port-routingSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10598,8 +10387,6 @@ paths:
   /api/rest/public/public-port-routing/search/export:
     post:
       operationId: public-port-routingSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10617,8 +10404,6 @@ paths:
   /api/rest/public/public-port-routing/search/names:
     get:
       operationId: public-port-routingSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10631,8 +10416,6 @@ paths:
   /api/rest/public/public-port-routing/suggest:
     post:
       operationId: public-port-routingSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10718,7 +10501,6 @@ paths:
       parameters:
       - $ref: '#/components/parameters/projectId'
       - $ref: '#/components/parameters/name'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10733,7 +10515,6 @@ paths:
       operationId: service-stack-typeSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10746,8 +10527,6 @@ paths:
   /api/rest/public/service-stack-type/search:
     post:
       operationId: service-stack-typeSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10765,8 +10544,6 @@ paths:
   /api/rest/public/service-stack-type/search/columns:
     get:
       operationId: service-stack-typeSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10779,8 +10556,6 @@ paths:
   /api/rest/public/service-stack-type/search/export:
     post:
       operationId: service-stack-typeSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10798,8 +10573,6 @@ paths:
   /api/rest/public/service-stack-type/search/names:
     get:
       operationId: service-stack-typeSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10812,8 +10585,6 @@ paths:
   /api/rest/public/service-stack-type/suggest:
     post:
       operationId: service-stack-typeSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10833,7 +10604,6 @@ paths:
       operationId: 256cd785-9b44-465b-8c2b-6ed35e5990e2
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10847,7 +10617,6 @@ paths:
       operationId: d5cde09f-191d-4be1-b172-9b6d244ec381
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10863,7 +10632,6 @@ paths:
       operationId: b31ba695-b286-4ce9-87ec-713cf34429d0
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10884,7 +10652,6 @@ paths:
       operationId: 9a635bb2-a6ee-4f40-82ba-5e257ff4783b
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10899,7 +10666,6 @@ paths:
       operationId: 95e2fb44-ab74-4fd0-b3f4-873be6b84886
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -10946,7 +10712,6 @@ paths:
       operationId: f331fac3-9f5b-4a28-9b1a-43b72d55901a
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -10999,7 +10764,6 @@ paths:
       parameters:
       - $ref: '#/components/parameters/id'
       - $ref: '#/components/parameters/date'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11016,7 +10780,6 @@ paths:
       parameters:
       - $ref: '#/components/parameters/id'
       - $ref: '#/components/parameters/date'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11032,7 +10795,6 @@ paths:
       operationId: f3292426-098d-45e3-ade3-6c7568742368
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11047,7 +10809,6 @@ paths:
       operationId: 63e0d442-fdbe-431b-8cbb-bfd1fb5093a2
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11068,7 +10829,6 @@ paths:
       operationId: 77f64d7c-857a-478a-aa51-50b82078fa4b
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11089,7 +10849,6 @@ paths:
       operationId: 3cea1fec-bd7c-4f73-b69b-68d369923314
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11104,7 +10863,6 @@ paths:
       operationId: 6e7154b5-d176-4ff3-ac96-56f50bb20aab
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11125,7 +10883,6 @@ paths:
       operationId: 8b396e91-45ba-4cda-979a-af30e8642230
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11141,7 +10898,6 @@ paths:
       operationId: e928d6bd-16c8-4f31-ad31-5f7c9253ed32
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11156,7 +10912,6 @@ paths:
       operationId: 7bd9f11c-486c-40e8-963b-0f75104df6ee
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11176,7 +10931,6 @@ paths:
       operationId: ce59e1d6-d166-4246-8efc-08ff8ab102cc
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11191,7 +10945,6 @@ paths:
       operationId: 072ec69e-15e0-412f-8ebf-d5ed330a9248
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11239,7 +10992,6 @@ paths:
       operationId: 827c51b3-87a8-456b-9d54-dcbffa4006db
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11259,7 +11011,6 @@ paths:
       operationId: cf6c5223-e7fc-424b-84f0-2bbc7f3b5a56
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11273,7 +11024,6 @@ paths:
       operationId: 909703d1-3be3-4521-be89-1ab7d2725a7c
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11293,7 +11043,6 @@ paths:
       operationId: 93a14230-dee6-4356-89d3-a9161621c3ae
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11308,7 +11057,6 @@ paths:
       operationId: 58ae895a-3b7c-4b14-8d93-053f09ec8702
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11323,7 +11071,6 @@ paths:
       operationId: fb0f76ec-c872-447a-bc8b-b7bd0b0607fd
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11338,7 +11085,6 @@ paths:
       operationId: f1539a19-dae5-4cdc-8bd0-7dd95eb82f7b
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11353,7 +11099,6 @@ paths:
       operationId: 41c8ff92-f4c9-47cc-b482-6a2132bd8918
       parameters:
       - $ref: '#/components/parameters/serviceStackTypeVersionId'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11373,7 +11118,6 @@ paths:
       operationId: service-stackSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11387,8 +11131,6 @@ paths:
     post:
       description: creates service stack based on it´s yaml format configuration
       operationId: a2c84947-0180-4fc4-8032-5822b0211b9e
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11406,8 +11148,6 @@ paths:
   /api/rest/public/service-stack/object_storage_v1:
     post:
       operationId: 1aa2f18f-2de2-41ab-9d84-3b74a2a5e8df
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11425,8 +11165,6 @@ paths:
   /api/rest/public/service-stack/search:
     post:
       operationId: service-stackSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11444,8 +11182,6 @@ paths:
   /api/rest/public/service-stack/search/columns:
     get:
       operationId: service-stackSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11458,8 +11194,6 @@ paths:
   /api/rest/public/service-stack/search/export:
     post:
       operationId: service-stackSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11477,8 +11211,6 @@ paths:
   /api/rest/public/service-stack/search/names:
     get:
       operationId: service-stackSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11491,8 +11223,6 @@ paths:
   /api/rest/public/service-stack/suggest:
     post:
       operationId: service-stackSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11530,7 +11260,6 @@ paths:
       operationId: serviceSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11543,8 +11272,6 @@ paths:
   /api/rest/public/service/search:
     post:
       operationId: serviceSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11562,8 +11289,6 @@ paths:
   /api/rest/public/service/search/columns:
     get:
       operationId: serviceSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11576,8 +11301,6 @@ paths:
   /api/rest/public/service/search/export:
     post:
       operationId: serviceSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11595,8 +11318,6 @@ paths:
   /api/rest/public/service/search/names:
     get:
       operationId: serviceSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11609,8 +11330,6 @@ paths:
   /api/rest/public/service/suggest:
     post:
       operationId: serviceSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11629,8 +11348,6 @@ paths:
     get:
       description: Vrátí kolekce číselníků potřebné pro GUI v jedné souhrnné odpovědi
       operationId: 0783aee5-6ffc-42ca-885c-62a2968bcb1b
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11653,8 +11370,6 @@ paths:
     get:
       description: Vrátí country list
       operationId: fb2b3082-bf02-49be-942c-d7785a3af38c
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11701,8 +11416,6 @@ paths:
     post:
       description: Loads resource statistics data from SQLite.
       operationId: a66e79f4-4e4f-46b6-868d-5bb416d05a40
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11721,8 +11434,6 @@ paths:
     post:
       description: Returns summarized costs.
       operationId: bfed1546-3f28-4753-bfdb-cb61ea4431c4
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11741,8 +11452,6 @@ paths:
     post:
       description: Returns aggregated debit transactions.
       operationId: 414538e0-231f-433a-8770-8a4eab10f694
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11761,8 +11470,6 @@ paths:
     post:
       description: Založení nového záznamu userData
       operationId: 9b22a0fd-e452-4d8a-9a7c-81ba212a8194
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11802,7 +11509,6 @@ paths:
       operationId: 0ffae059-c675-4872-a8c8-77bdb04f5f2d
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11846,7 +11552,6 @@ paths:
       operationId: userDataIdGet
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11889,7 +11594,6 @@ paths:
       operationId: c549a2ec-c49c-4e6c-a1c8-a672d729d42b
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11920,7 +11624,6 @@ paths:
       operationId: user-dataSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11933,8 +11636,6 @@ paths:
   /api/rest/public/user-data/env-file:
     put:
       operationId: 3b10de77-98c0-49f0-881d-ab8cd5d45838
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11963,8 +11664,6 @@ paths:
   /api/rest/public/user-data/search:
     post:
       operationId: user-dataSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -11982,8 +11681,6 @@ paths:
   /api/rest/public/user-data/search/columns:
     get:
       operationId: user-dataSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -11996,8 +11693,6 @@ paths:
   /api/rest/public/user-data/search/export:
     post:
       operationId: user-dataSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -12015,8 +11710,6 @@ paths:
   /api/rest/public/user-data/search/names:
     get:
       operationId: user-dataSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -12029,8 +11722,6 @@ paths:
   /api/rest/public/user-data/suggest:
     post:
       operationId: user-dataSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -12050,7 +11741,6 @@ paths:
       operationId: 3ddbe410-bd8a-4b32-9450-e5e673aeda40
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -12064,7 +11754,6 @@ paths:
     put:
       operationId: a4ee73ab-ef32-41d7-8886-5f044cd2e84a
       parameters:
-      - $ref: '#/components/parameters/Authorization'
       - $ref: '#/components/parameters/Sync'
       requestBody:
         content:
@@ -12085,7 +11774,6 @@ paths:
       operationId: user-notificationSearchDownload
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -12098,8 +11786,6 @@ paths:
   /api/rest/public/user-notification/search:
     post:
       operationId: user-notificationSearch
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -12117,8 +11803,6 @@ paths:
   /api/rest/public/user-notification/search/columns:
     get:
       operationId: user-notificationSearchColumns
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -12131,8 +11815,6 @@ paths:
   /api/rest/public/user-notification/search/export:
     post:
       operationId: user-notificationSearchExport
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -12150,8 +11832,6 @@ paths:
   /api/rest/public/user-notification/search/names:
     get:
       operationId: user-notificationSearchNames
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -12164,8 +11844,6 @@ paths:
   /api/rest/public/user-notification/suggest:
     post:
       operationId: user-notificationSuggest
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -12183,8 +11861,6 @@ paths:
   /api/rest/public/user-token:
     post:
       operationId: d1c65c38-d742-40b6-8cf8-b6f3e06aa4ca
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -12199,7 +11875,6 @@ paths:
       operationId: cc0b5946-f569-47da-b8c4-7c34d267b904
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -12215,7 +11890,6 @@ paths:
       operationId: 404f2072-a751-4347-8b2c-262216cd3011
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -12273,7 +11947,6 @@ paths:
       operationId: 0ef7af4f-acdc-4868-a674-2715d9ba5494
       parameters:
       - $ref: '#/components/parameters/id'
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -12372,8 +12045,6 @@ paths:
     get:
       description: Vrátí informace o přihlášeném uživateli.
       operationId: userInfoGet
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       responses:
         "200":
           content:
@@ -12416,8 +12087,6 @@ paths:
     put:
       description: Změní uživateli heslo v IS
       operationId: a841299c-5957-4ed1-9b54-136b1285177b
-      parameters:
-      - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
