@@ -2,7 +2,9 @@ zerops:
   - setup: openapi
     build:
       deployFiles:
+        - favicon.ico
         - index.html
+        - logo.svg
         - openapi.yml
     run:
       base: static
